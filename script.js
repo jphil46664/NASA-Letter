@@ -6,6 +6,11 @@ document.getElementById("generate-btn").addEventListener("click", function (even
 });
 
 function generateLetter(name, project) {
+    if (!name || !project) {
+        alert("Please enter your name and project.");
+        return;
+    }
+    
     const letterContainer = document.getElementById("letter-container");
     const letterContent = document.getElementById("letter-content");
     const downloadBtn = document.getElementById("download-btn");
