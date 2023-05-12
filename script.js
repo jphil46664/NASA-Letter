@@ -10,7 +10,7 @@ function generateLetter(name, project) {
         alert("Please enter your name and project.");
         return;
     }
-    
+
     const letterContainer = document.getElementById("letter-container");
     const letterContent = document.getElementById("letter-content");
     const downloadBtn = document.getElementById("download-btn");
@@ -34,6 +34,7 @@ Head of the Department of Space Research`;
 
     letterContainer.classList.remove("hidden");
     downloadBtn.classList.remove("hidden");
+    document.getElementById("share-btn").classList.remove("hidden");
 }
 
 document.getElementById("download-btn").addEventListener("click", function (event) {
@@ -51,10 +52,6 @@ document.getElementById("download-btn").addEventListener("click", function (even
         document.body.removeChild(link);
     });
 });
-
-// Show the share button when the letter is generated
-downloadBtn.classList.remove("hidden");
-document.getElementById("share-btn").classList.remove("hidden");
 
 // Add the event listener for the share button
 document.getElementById("share-btn").addEventListener("click", function (event) {
@@ -76,4 +73,3 @@ function shareLetter() {
         alert("Sorry, your browser doesn't support the Web Share API.");
     }
 }
-
