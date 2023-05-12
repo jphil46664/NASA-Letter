@@ -26,7 +26,7 @@ The "${project}" project has the potential to open up new horizons and change ou
 
 With best regards,
 
-[signature]
+
 Dr. Jane Smith
 Head of the Department of Space Research`;
 
@@ -51,4 +51,29 @@ document.getElementById("download-btn").addEventListener("click", function (even
         document.body.removeChild(link);
     });
 });
+
+// Show the share button when the letter is generated
+downloadBtn.classList.remove("hidden");
+document.getElementById("share-btn").classList.remove("hidden");
+
+// Add the event listener for the share button
+document.getElementById("share-btn").addEventListener("click", function (event) {
+    event.preventDefault();
+    shareLetter();
+});
+
+// Implement the share functionality
+function shareLetter() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Fake NASA Letter',
+            text: 'Check out my fake NASA letter!',
+            url: window.location.href,
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing:', error));
+    } else {
+        alert("Sorry, your browser doesn't support the Web Share API.");
+    }
+}
 
